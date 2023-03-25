@@ -6,31 +6,42 @@
     <VerticalStackLayout>
         <Frame BorderColor="Black">
             <HorizontalStackLayout HeightRequest="50">
-                <ImageButton Source="arrow_back.png"
+                <ImageButton Source="double_arrow_back.png"
+                             BackgroundColor="Transparent"
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
-                             WidthRequest="40"
-                             HeightRequest="40"
+                             WidthRequest="50"
+                             HeightRequest="50"
                              Clicked="OnClickReturnPage"/>
-                <Label Text="Povratak"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Padding="10"
-                       FontSize="Title"/>
             </HorizontalStackLayout>
         </Frame>
-        <VerticalStackLayout >
-                <Label Text="Odaberite težinu nivoa"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       FontSize="Title"
-                       Padding="25"/>
-                <Button/>
-                <Button/>
-                <Button/>
-            </VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center">
+            <Label Text="CHOOSE THE DIFFICULTY"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="Large"
+                   Padding="15"
+                   Margin="50"/>
+            <Button Text="Easy"
+                    CornerRadius="15"
+                    WidthRequest="300"
+                    FontSize="Medium"
+                    Padding="20"
+                    Margin="5"
+                    Clicked="OnClickDifficultyEasy"/>
+            <Button Text="Normal"
+                    CornerRadius="15"
+                    WidthRequest="300"
+                    FontSize="Medium"
+                    Padding="20"
+                    Margin="5"/>
+            <Button Text="Hard"
+                    CornerRadius="15"
+                    WidthRequest="300"
+                    FontSize="Medium"
+                    Padding="20"
+                    Margin="5"/>
+        </VerticalStackLayout>
     </VerticalStackLayout>
-
-
-
 </ContentPage>
