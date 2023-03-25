@@ -9,7 +9,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button Text="Easy"
-                ContentLayout="EasyDifficulty"
+                ContentLayout="EasyDifficulty">
               />
         <Button Text="Normal"
                 ContentLayout="NormalDifficulty"/>
