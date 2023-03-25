@@ -4,12 +4,16 @@
              x:Class="Dinory.MainPage">
 
     <Grid Padding="10"
-          RowDefinitions="100,Auto,Auto,*"
-          ColumnDefinitions=".25*,.25*,.25*,.25*">
+          RowDefinitions="100,Auto,Auto,Auto"
+          ColumnDefinitions=".2*,.2*,.2*,.2*,.2*">
         <Button Grid.Row="2"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Text="Start"
-                Clicked="OnClick" />
+                Grid.Column="2"
+                Text="Zaigraj"
+                Clicked="OnClickStartGame"/>
+
+        <Button Grid.Row="3"
+                Grid.Column="2"
+                Text="Izađi iz igre"
+                Clicked="OnClickCloseGame"/>
     </Grid>
 </ContentPage>

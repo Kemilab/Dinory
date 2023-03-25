@@ -6,9 +6,9 @@ public partial class DifficultyPage : ContentPage
 	{
 		InitializeComponent();
 	}
-    private async void Return(object sender, EventArgs e)
+    private void OnClickReturnPage(object sender, EventArgs e)
 	{
-		await Navigation.PopAsync();
+		 Navigation.PopAsync();
 	}
     
 }

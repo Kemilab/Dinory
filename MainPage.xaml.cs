@@ -8,9 +8,13 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 
 	}
-    private async void OnClick(object sender, EventArgs e)
+    private void OnClickStartGame(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new DifficultyPage());
+         Navigation.PushAsync(new DifficultyPage());
+    }
+    private void OnClickCloseGame(object sender, EventArgs e)
+    {
+        Application.Current.Quit();
     }
 }
 
