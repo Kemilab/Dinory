@@ -1,9 +1,14 @@
 namespace Dinory;
 
-public partial class difficulty : ContentPage
+public partial class DifficultyPage : ContentPage
 {
-	public difficulty()
+	public DifficultyPage()
 	{
 		InitializeComponent();
 	}
+    private async void Return(object sender, EventArgs e)
+	{
+		await Navigation.PopAsync();
+	}
+    
 }
