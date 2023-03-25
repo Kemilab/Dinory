@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace Dinory;
 
@@ -9,7 +10,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
                 fonts.AddFont("Poppins-Regular.ttf", "PoppinsRegular");
                 fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
