@@ -36,8 +36,8 @@ public partial class DifficultyPage : ContentPage
 	{
 		Button button = (Button)sender;
         await OnClickButtonSmall(button, 100, 150);
-		//samo za primjer
-        await Navigation.PopAsync();
+        //samo za primjer
+        await Navigation.PushAsync(new EasyDifficulty());
     }
     
     private async void OnClickSettings(object sender, EventArgs e)

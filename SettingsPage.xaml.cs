@@ -1,15 +1,19 @@
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Graphics;
-using System.Drawing;
+using Microsoft.Maui.Controls;
+using Plugin.Maui.Audio;
+
+
 
 namespace Dinory;
 
 public partial class SettingsPage : Popup
 {
-	public SettingsPage()
+
+    public SettingsPage()
 	{
 		InitializeComponent();
-	}
+    }
 	private void OnClickExit(object sender, EventArgs e)
 	{
 		//primjer
@@ -19,4 +23,5 @@ public partial class SettingsPage : Popup
 	{
 		Application.Current.Quit();
 	}
+
 }

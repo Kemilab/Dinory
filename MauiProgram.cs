@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
 
 namespace Dinory;
 
@@ -17,7 +18,9 @@ public static class MauiProgram
                 fonts.AddFont("Poppins-Regular.ttf", "PoppinsRegular");
                 fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
             });
-
+        builder.Services.AddSingleton(AudioManager.Current);
+        builder.Services.AddSingleton<MainPage>();
+        ;
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

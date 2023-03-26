@@ -1,19 +1,28 @@
 ﻿using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Maui.Views;
+using Plugin.Maui.Audio;
 
 namespace Dinory;
 
 public partial class MainPage : ContentPage
 {
+    private readonly IAudioManager audioManager;
 
-    public MainPage()
+    public MainPage(IAudioManager audioManager)
     {
         InitializeComponent();
-
+        this.audioManager = audioManager;
     }
-    private void OnClickStartGame(object sender, EventArgs e)
+
+    
+    
+
+    private async void OnClickStartGame(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new DifficultyPage());
+        var player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("die_for_you.mp3"));
+        //layer.Play();
+  
+        await Navigation.PushAsync(new DifficultyPage());
     }
     private void OnClickCloseGame(object sender, EventArgs e)
     {

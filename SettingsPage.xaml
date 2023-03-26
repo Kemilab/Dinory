@@ -15,12 +15,14 @@
                         Text="Music"
                        FontSize="Subtitle"
                        Margin="10"/>
-                <CheckBox IsChecked="True"/>
+                <Switch IsToggled="True"
+                       />
                 <Button Text="Exit the game"
                      FontSize="Subtitle"
-                     Padding="10, 5"
+                     Padding="15, 5"
                      CornerRadius="15"
-                        Margin="300,0"/>
+                     Margin="150,0"
+                     Clicked="OnClickExit"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Frame>
