@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Dinory.PopupPage">
+    <Frame>
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Sound Controls" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" Margin="20" FontFamily="Poppins-SemiBold" />
+            <StackLayout Spacing="5" Orientation="Vertical">
+                <Button Text="Play" x:Name="Play" Clicked="Play_Clicked" VerticalOptions="Center"/>
+                <Button Text="Pause" x:Name="Pause" Clicked="Pause_Clicked" VerticalOptions="Center"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>
