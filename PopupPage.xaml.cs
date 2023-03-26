@@ -8,12 +8,12 @@ public partial class PopupPage : Popup
 		InitializeComponent();
 	}
 
-    private void Play_Clicked(object sender, EventArgs e)
+    private void OnClickPlay(object sender, EventArgs e)
     {
 
     }
 
-    private void Pause_Clicked(object sender, EventArgs e)
+    private void OnClickStop(object sender, EventArgs e)
     {
 
     }

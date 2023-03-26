@@ -4,19 +4,32 @@
              x:Class="Dinory.DifficultyPage">
 
     <VerticalStackLayout>
-        <Frame BorderColor="Black">
-            <HorizontalStackLayout HeightRequest="50">
+        <Frame BorderColor="Transparent">
+            <Grid HeightRequest="50"
+                  ColumnDefinitions=".05*,*,.05*"
+                  RowDefinitions="50">
                 <ImageButton Source="double_arrow_back.png"
                              BackgroundColor="Transparent"
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
                              WidthRequest="50"
                              HeightRequest="50"
-                             Clicked="OnClickReturnPage"/>
-            </HorizontalStackLayout>
+                             Clicked="OnClickReturnPage"
+                             Grid.Row="0"
+                             Grid.Column="0"/>
+                <ImageButton Source="volume_on.png"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             Grid.Row="0"
+                             Grid.Column="2"/>
+            </Grid>
         </Frame>
         <VerticalStackLayout VerticalOptions="Center"
-                             HorizontalOptions="Center">
+                             HorizontalOptions="Center"
+                             Spacing="10">
             <Label Text="CHOOSE THE DIFFICULTY"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
@@ -28,20 +41,17 @@
                     WidthRequest="300"
                     FontSize="Medium"
                     Padding="20"
-                    Margin="5"
                     Clicked="OnClickDifficultyEasy"/>
             <Button Text="Normal"
                     CornerRadius="15"
                     WidthRequest="300"
                     FontSize="Medium"
-                    Padding="20"
-                    Margin="5"/>
+                    Padding="20"/>
             <Button Text="Hard"
                     CornerRadius="15"
                     WidthRequest="300"
                     FontSize="Medium"
-                    Padding="20"
-                    Margin="5"/>
+                    Padding="20"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

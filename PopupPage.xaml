@@ -7,8 +7,8 @@
         <VerticalStackLayout Spacing="5">
             <Label Text="Sound Controls" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" Margin="20" FontFamily="Poppins-SemiBold" />
             <StackLayout Spacing="5" Orientation="Vertical">
-                <Button Text="Play" x:Name="Play" Clicked="Play_Clicked" VerticalOptions="Center"/>
-                <Button Text="Pause" x:Name="Pause" Clicked="Pause_Clicked" VerticalOptions="Center"/>
+                <Button Text="Play" x:Name="Play" Clicked="OnClickPlay" VerticalOptions="Center"/>
+                <Button Text="Pause" x:Name="Pause" Clicked="OnClickStop" VerticalOptions="Center"/>
             </StackLayout>
         </VerticalStackLayout>
     </Frame>
