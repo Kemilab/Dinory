@@ -11,6 +11,7 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .UseMauiCommunityToolkitMediaElement()
             .ConfigureFonts(fonts =>
 			{
                 fonts.AddFont("Poppins-Regular.ttf", "PoppinsRegular");

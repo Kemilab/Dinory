@@ -22,6 +22,6 @@ public partial class MainPage : ContentPage
 
     private void ButtonClicked(object sender, EventArgs e)
     {
-        this.ShowPopupAsync(new PopupPage());
+        this.ShowPopupAsync(new SettingsPage());
     }
 }

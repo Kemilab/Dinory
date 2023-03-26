@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Views;
+
 namespace Dinory;
 
 public partial class DifficultyPage : ContentPage
@@ -26,16 +28,22 @@ public partial class DifficultyPage : ContentPage
     private async void OnClickReturnPage(object sender, EventArgs e)
 	{
         ImageButton button = (ImageButton)sender;
-        await OnClickButtonBig(button, 100, 200);
+        await OnClickButtonBig(button, 100, 150);
         await Navigation.PopAsync();
     }
     
 	private async void OnClickDifficultyEasy(object sender, EventArgs e)
 	{
 		Button button = (Button)sender;
-        await OnClickButtonSmall(button, 100, 200);
+        await OnClickButtonSmall(button, 100, 150);
 		//samo za primjer
         await Navigation.PopAsync();
     }
-
+    
+    private async void OnClickSettings(object sender, EventArgs e)
+    {
+        ImageButton button = (ImageButton)sender;
+        await OnClickButtonBig(button, 100, 100);
+        await this.ShowPopupAsync(new SettingsPage());
+    }
 }
