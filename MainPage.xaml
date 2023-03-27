@@ -4,20 +4,74 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Dinory.MainPage">
 
-    <Grid Padding="10"
-          BackgroundColor="AliceBlue"
-          RowDefinitions="100,Auto,Auto,Auto"
-          ColumnDefinitions=".2*,.2*,.2*,.2*,.2*">
-        <Button Grid.Row="2"
-                Grid.Column="2"
+    <Grid BackgroundColor="#2196F3" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="3"
+               Text="Dinory"
+               FontSize="Large"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               Margin="10"/>
+
+        <ImageButton Source="settings.png"
+                     BackgroundColor="Transparent"
+                     WidthRequest="30"
+                     HeightRequest="30"
+                     Grid.Row="0"
+                     x:Name="Sound"
+                     Clicked="Sound_Clicked"
+                     Grid.Column="2"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     Margin="10"/>
+
+        <Button Grid.Row="1"
+                Grid.Column="1"
                 Text="Zaigraj"
-                Clicked="OnClickStartGame"/>
+                FontSize="Large"
+                FontAttributes="Bold"
+                BackgroundColor="#FFC107"
+                TextColor="White"
+                CornerRadius="10"
+                Clicked="OnClickStartGame"
+                HorizontalOptions="Center"
+                Margin="10"
+                WidthRequest="300"/>
 
-        <Button Grid.Row="3"
-                Grid.Column="2"
+        <Button Grid.Row="2"
+                Grid.Column="1"
                 Text="Izađi iz igre"
-                Clicked="OnClickCloseGame"/>
+                FontSize="Large"
+                FontAttributes="Bold"
+                BackgroundColor="#E91E63"
+                TextColor="White"
+                CornerRadius="10"
+                Clicked="OnClickCloseGame"
+                WidthRequest="300"
+                HorizontalOptions="Center"/>
 
-        <Button Grid.Row="4" Grid.Column="3" Text="Zvuk" Clicked="ButtonClicked" BackgroundColor="Red" />
+        <Image
+        x:Name="backgroundImage"
+        Source="mapa.png"
+        Aspect="AspectFill"
+        HorizontalOptions="Start"/>
+
     </Grid>
 </ContentPage>

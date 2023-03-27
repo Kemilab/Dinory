@@ -4,10 +4,10 @@ namespace Dinory;
 
 public partial class DifficultyPage : ContentPage
 {
-	public DifficultyPage()
-	{
-		InitializeComponent();
-	}
+    public DifficultyPage()
+    {
+        InitializeComponent();
+    }
 
     public static async Task OnClickButtonBig(ImageButton ImageButton, int scaleDuration, int delayDuration)
     {
@@ -26,20 +26,20 @@ public partial class DifficultyPage : ContentPage
     }
 
     private async void OnClickReturnPage(object sender, EventArgs e)
-	{
+    {
         ImageButton button = (ImageButton)sender;
         await OnClickButtonBig(button, 100, 150);
         await Navigation.PopAsync();
     }
-    
-	private async void OnClickDifficultyEasy(object sender, EventArgs e)
-	{
-		Button button = (Button)sender;
+
+    private async void OnClickDifficultyEasy(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
         await OnClickButtonSmall(button, 100, 150);
         //samo za primjer
         await Navigation.PushAsync(new EasyDifficulty());
     }
-    
+
     private async void OnClickSettings(object sender, EventArgs e)
     {
         ImageButton button = (ImageButton)sender;

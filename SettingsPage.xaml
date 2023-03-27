@@ -15,7 +15,8 @@
                         Text="Music"
                        FontSize="Subtitle"
                        Margin="10"/>
-                <Switch IsToggled="True"
+                <Switch
+                        Toggled="Switch_Toggled"
                        />
                 <Button Text="Exit the game"
                      FontSize="Subtitle"

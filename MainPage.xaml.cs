@@ -1,27 +1,17 @@
-﻿using CommunityToolkit.Maui.Extensions;
-using CommunityToolkit.Maui.Views;
-using Plugin.Maui.Audio;
+﻿using CommunityToolkit.Maui.Views;
+
 
 namespace Dinory;
 
 public partial class MainPage : ContentPage
 {
-    private readonly IAudioManager audioManager;
 
-    public MainPage(IAudioManager audioManager)
+    public MainPage()
     {
         InitializeComponent();
-        this.audioManager = audioManager;
     }
-
-    
-    
-
     private async void OnClickStartGame(object sender, EventArgs e)
     {
-        var player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("die_for_you.mp3"));
-        //layer.Play();
-  
         await Navigation.PushAsync(new DifficultyPage());
     }
     private void OnClickCloseGame(object sender, EventArgs e)
@@ -29,8 +19,15 @@ public partial class MainPage : ContentPage
         Application.Current.Quit();
     }
 
-    private void ButtonClicked(object sender, EventArgs e)
+    private async void Sound_Clicked(object sender, EventArgs e)
     {
-        this.ShowPopupAsync(new SettingsPage());
+        await this.ShowPopupAsync(new SettingsPage());
+    }
+
+    protected override void OnSizeAllocated(double pageWidth, double pageHeight)
+    {
+        base.OnSizeAllocated(pageWidth, pageHeight);
+        const double aspectRatio = 3200 / 1745; // Aspect ratio of the original image
+        backgroundImage.WidthRequest = Math.Max(pageHeight * aspectRatio, pageWidth);
     }
 }
