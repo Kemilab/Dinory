@@ -1,12 +1,10 @@
 using CommunityToolkit.Maui.Views;
+using Plugin.Maui.Audio;
 
 namespace Dinory;
 
 public partial class SettingsPage : Popup
 {
-
-
-
     public SettingsPage()
     {
         InitializeComponent();
@@ -15,11 +13,22 @@ public partial class SettingsPage : Popup
     {
         Application.Current.Quit();
     }
-    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    private async void Switch_Toggled(object sender, ToggledEventArgs e)
     {
-
+        bool isSwitchToggled = e.Value;
+        if (isSwitchToggled == false)
+        {
+            var Player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("caves.mp3"));
+            Player.Pause();
+        }
+        if (isSwitchToggled == true)
+        {
+            var Player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("caves.mp3"));
+            Player.Play();
+        }
     }
 }
+
 
 
 

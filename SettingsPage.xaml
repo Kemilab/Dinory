@@ -17,6 +17,7 @@
                        Margin="10"/>
                 <Switch
                         Toggled="Switch_Toggled"
+                    IsToggled="False"
                        />
                 <Button Text="Exit the game"
                      FontSize="Subtitle"

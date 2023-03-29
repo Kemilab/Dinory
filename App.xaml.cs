@@ -1,7 +1,4 @@
 ﻿using System.Runtime.InteropServices;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Handlers;
 namespace Dinory;
 public partial class App : Application
 {
