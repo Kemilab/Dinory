@@ -1,4 +1,3 @@
-using Microsoft.Maui.Controls;
 namespace Dinory
 {
     public partial class EasyDifficulty : ContentPage
@@ -36,6 +35,7 @@ namespace Dinory
             var random = new Random();
             Images = Images.OrderBy(_ => random.Next()).ToList();
         }
+
 
         private void LoadGameBoard()
         {
@@ -101,8 +101,6 @@ namespace Dinory
             ((button.Parent as Grid).Children[0] as Image).IsVisible = true;
             button.BackgroundColor = Colors.Transparent;
 
-
-
             if (_firstButtonClicked == null)
             {
                 _firstButtonClicked = button;
@@ -112,12 +110,18 @@ namespace Dinory
                 _secondButtonClicked = button;
                 await Task.Delay(100);
 
-                if (Images[imageIndex] == Images[_firstButtonClicked.RowIndex() * Columns + _firstButtonClicked.ColumnIndex()])
+                var firstImage = ((button.Parent as Grid).Children[0] as Image).Source as FileImageSource;
+                var secondImage = ((_firstButtonClicked.Parent as Grid).Children[0] as Image).Source as FileImageSource;
+
+                if (firstImage != null && secondImage != null && firstImage.File == secondImage.File)
                 {
                     _firstButtonClicked.SetMatched(true);
                     _secondButtonClicked.SetMatched(true);
-                    
 
+                    if (CheckIfAllPairsFound())
+                    {
+                        await DisplayAlert("Congratulations!", "You have matched all the pairs!", "OK");
+                    }
                 }
                 else
                 {
@@ -125,14 +129,16 @@ namespace Dinory
                     _firstButtonClicked.BackgroundColor = Colors.Gray;
                     ((_secondButtonClicked.Parent as Grid).Children[0] as Image).IsVisible = false;
                     _secondButtonClicked.BackgroundColor = Colors.Gray;
-
-
                 }
 
                 _firstButtonClicked = null;
                 _secondButtonClicked = null;
             }
         }
+
+
+
+
 
         private bool CheckIfAllPairsFound()
         {
@@ -177,7 +183,7 @@ namespace Dinory
         public static readonly BindableProperty MatchedProperty =
             BindableProperty.CreateAttached("Matched", typeof(bool), typeof(ButtonExtensions), false);
     }
-   
+
     public class ImageButton : Button
     {
         public ImageSource CardImage { get; set; }
