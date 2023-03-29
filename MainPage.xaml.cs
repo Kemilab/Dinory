@@ -30,8 +30,6 @@ public partial class MainPage : ContentPage
         Application.Current.Quit();
     }
 
-    private async void Sound_Clicked(object sender, EventArgs e)
-    {
-        await this.ShowPopupAsync(new SettingsPage());
-    }
+
+
 }
