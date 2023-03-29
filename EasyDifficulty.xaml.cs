@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 namespace Dinory
 {
     public partial class EasyDifficulty : ContentPage
@@ -115,6 +116,8 @@ namespace Dinory
                 {
                     _firstButtonClicked.SetMatched(true);
                     _secondButtonClicked.SetMatched(true);
+                    
+
                 }
                 else
                 {
@@ -129,6 +132,23 @@ namespace Dinory
                 _firstButtonClicked = null;
                 _secondButtonClicked = null;
             }
+        }
+
+        private bool CheckIfAllPairsFound()
+        {
+            foreach (var child in GameBoardGrid.Children)
+            {
+                if (child is Grid cardGrid)
+                {
+                    var button = cardGrid.Children.OfType<Button>().FirstOrDefault();
+                    if (button != null && !button.IsMatched())
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 
@@ -157,14 +177,12 @@ namespace Dinory
         public static readonly BindableProperty MatchedProperty =
             BindableProperty.CreateAttached("Matched", typeof(bool), typeof(ButtonExtensions), false);
     }
-
-
+   
     public class ImageButton : Button
     {
         public ImageSource CardImage { get; set; }
         public bool IsImageVisible { get; set; }
     }
-
 }
 
 
