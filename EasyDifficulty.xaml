@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dinory.EasyDifficulty"
@@ -12,7 +11,23 @@
             </Style>
         </Grid.Resources>
 
-        <Grid x:Name="GameBoardGrid" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Slider x:Name="CountdownSlider"
+                Grid.Row="0"
+                Maximum="30"
+                Minimum="0"
+                Value="{Binding CountdownValue}"
+                IsEnabled="False"
+                FlowDirection="RightToLeft" />
+
+        <Grid x:Name="GameBoardGrid"
+              Grid.Row="1"
+              ColumnSpacing="10"
+              RowSpacing="10" />
     </Grid>
 
 </ContentPage>

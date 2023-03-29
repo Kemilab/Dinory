@@ -1,9 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 namespace Dinory
 {
-    public partial class EasyDifficulty : ContentPage
+    public partial class EasyDifficulty : ContentPage, INotifyPropertyChanged
     {
         private const int Rows = 2;
         private const int Columns = 5;
+        private CancellationTokenSource _timerCancellationTokenSource;
+
 
         private List<string> Images;
         private Button _firstButtonClicked;
@@ -13,6 +23,8 @@ namespace Dinory
         {
             InitializeComponent();
             InitializeImages();
+            StartTimer();
+            BindingContext = this;
             LoadGameBoard();
         }
 
@@ -84,6 +96,59 @@ namespace Dinory
                 }
             }
         }
+        private double _countdownValue = 30;
+        public double CountdownValue
+        {
+            get => _countdownValue;
+            set
+            {
+                if (_countdownValue != value)
+                {
+                    _countdownValue = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private async void StartTimer()
+        {
+            _timerCancellationTokenSource = new CancellationTokenSource();
+
+            DateTime endTime = DateTime.Now.AddSeconds(30);
+
+            while (true)
+            {
+                try
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(1), _timerCancellationTokenSource.Token);
+                }
+                catch (TaskCanceledException)
+                {
+                    // Task was canceled, do nothing.
+                    return;
+                }
+
+                TimeSpan remaining = endTime - DateTime.Now;
+
+                CountdownValue = remaining.TotalSeconds;
+
+                if (remaining <= TimeSpan.Zero)
+                {
+                    await DisplayAlert("Time's up!", "The game has ended.", "OK");
+                    await Navigation.PopAsync();
+                    break;
+                }
+            }
+        }
+
+
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
@@ -121,6 +186,7 @@ namespace Dinory
                     if (CheckIfAllPairsFound())
                     {
                         await DisplayAlert("Congratulations!", "You have matched all the pairs!", "OK");
+                        await Navigation.PopAsync();
                     }
                 }
                 else
