@@ -28,8 +28,8 @@ namespace Dinory
                 "brown.png",
                 "red.png",
                 "red.png",
-                "brown.png",
-                "brown.png"
+                "green_dino.png",
+                "green_dino.png"
             };
 
             var random = new Random();
