@@ -20,16 +20,16 @@ namespace Dinory
         {
             Images = new List<string>
             {
-                "blue.png",
-                "blue.png",
-                "green.png",
-                "green.png",
-                "brown.png",
-                "brown.png",
-                "red.png",
-                "red.png",
-                "green_dino.png",
-                "green_dino.png"
+                "dino1.png",
+                "dino1.png",
+                "dino2.png",
+                "dino2.png",
+                "dino3.png",
+                "dino3.png",
+                "dino4.png",
+                "dino4.png",
+                "dino5.png",
+                "dino5.png"
             };
 
             var random = new Random();
@@ -40,27 +40,46 @@ namespace Dinory
         {
             for (int i = 0; i < Rows; i++)
             {
-                GameBoardGrid.RowDefinitions.Add(new RowDefinition());
+                GameBoardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
             }
 
             for (int i = 0; i < Columns; i++)
             {
-                GameBoardGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                GameBoardGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
             }
+
+            int cardIndex = 0;
 
             for (int row = 0; row < Rows; row++)
             {
                 for (int column = 0; column < Columns; column++)
                 {
+                    var image = new Image
+                    {
+                        Source = ImageSource.FromFile(Images[cardIndex]),
+                        IsVisible = false,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand
+                    };
+
                     var button = new Button
                     {
                         BackgroundColor = Colors.Gray,
-                        CommandParameter = $"{row},{column}"
+                        CommandParameter = $"{row},{column}",
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand
                     };
                     button.Clicked += Button_Clicked;
-                    Grid.SetRow(button, row);
-                    Grid.SetColumn(button, column);
-                    GameBoardGrid.Children.Add(button);
+
+                    var cardGrid = new Grid();
+                    cardGrid.Children.Add(image);
+                    cardGrid.Children.Add(button);
+
+                    Grid.SetRow(cardGrid, row);
+                    Grid.SetColumn(cardGrid, column);
+                    GameBoardGrid.Children.Add(cardGrid);
+
+                    cardIndex++;
                 }
             }
         }
@@ -68,15 +87,20 @@ namespace Dinory
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
+            if (button.IsMatched())
+            {
+                return;
+            }
             var position = button.CommandParameter.ToString().Split(',');
             var row = int.Parse(position[0]);
             var column = int.Parse(position[1]);
-
             var imageIndex = row * Columns + column;
             var imageSource = ImageSource.FromFile(Images[imageIndex]);
 
-            button.ImageSource = imageSource;
+            ((button.Parent as Grid).Children[0] as Image).IsVisible = true;
             button.BackgroundColor = Colors.Transparent;
+
+
 
             if (_firstButtonClicked == null)
             {
@@ -85,19 +109,21 @@ namespace Dinory
             else
             {
                 _secondButtonClicked = button;
-                await Task.Delay(1000);
+                await Task.Delay(100);
 
                 if (Images[imageIndex] == Images[_firstButtonClicked.RowIndex() * Columns + _firstButtonClicked.ColumnIndex()])
                 {
-                    _firstButtonClicked.IsEnabled = false;
-                    _secondButtonClicked.IsEnabled = false;
+                    _firstButtonClicked.SetMatched(true);
+                    _secondButtonClicked.SetMatched(true);
                 }
                 else
                 {
-                    _firstButtonClicked.ImageSource = null;
+                    ((_firstButtonClicked.Parent as Grid).Children[0] as Image).IsVisible = false;
                     _firstButtonClicked.BackgroundColor = Colors.Gray;
-                    _secondButtonClicked.ImageSource = null;
+                    ((_secondButtonClicked.Parent as Grid).Children[0] as Image).IsVisible = false;
                     _secondButtonClicked.BackgroundColor = Colors.Gray;
+
+
                 }
 
                 _firstButtonClicked = null;
@@ -117,7 +143,28 @@ namespace Dinory
         {
             return (int)button.GetValue(Grid.ColumnProperty);
         }
+
+        public static bool IsMatched(this Button button)
+        {
+            return (bool)button.GetValue(MatchedProperty);
+        }
+
+        public static void SetMatched(this Button button, bool value)
+        {
+            button.SetValue(MatchedProperty, value);
+        }
+
+        public static readonly BindableProperty MatchedProperty =
+            BindableProperty.CreateAttached("Matched", typeof(bool), typeof(ButtonExtensions), false);
     }
+
+
+    public class ImageButton : Button
+    {
+        public ImageSource CardImage { get; set; }
+        public bool IsImageVisible { get; set; }
+    }
+
 }
 
 
