@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+using Microsoft.Maui.Controls;
 
 namespace Dinory;
 
@@ -27,5 +28,5 @@ public partial class MainPage : ContentPage
         await this.ShowPopupAsync(new SettingsPage());
     }
 
-
+    
 }
