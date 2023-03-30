@@ -1,7 +1,4 @@
 ﻿using CommunityToolkit.Maui.Views;
-
-
-
 namespace Dinory;
 
 public partial class MainPage : ContentPage
@@ -11,25 +8,25 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
-    public static async Task OnClickButtonSmall(Button Button, int scaleDuration, int delayDuration)
-    {
-        await Button.ScaleTo(0.9, (uint)scaleDuration);
-        await Task.Delay(delayDuration);
-        await Button.ScaleTo(1, (uint)scaleDuration);
-        await Task.Delay(delayDuration);
-        await Button.ScaleTo(1, (uint)scaleDuration);
-    }
+
     private async void OnClickStartGame(object sender, EventArgs e)
     {
         Button button = (Button)sender;
-        await OnClickButtonSmall(button, 100, 150);
+        await Buttons.OnClickButtonSmall(button, 100, 150);
         await Navigation.PushAsync(new DifficultyPage());
     }
+
     private void OnClickCloseGame(object sender, EventArgs e)
     {
         Application.Current.Quit();
     }
 
+    private async void OnClickSettings(object sender, EventArgs e)
+    {
+        ImageButton button = (ImageButton)sender;
+        await Buttons.OnClickButtonBig(button, 100, 150);
+        await this.ShowPopupAsync(new SettingsPage());
+    }
 
 
 }

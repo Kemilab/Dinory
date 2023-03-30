@@ -36,11 +36,11 @@
                      WidthRequest="30"
                      HeightRequest="30"
                      Grid.Row="0"
-                     x:Name="Sound"
+                     Clicked="OnClickSettings"
                      Grid.Column="2"
                      HorizontalOptions="End"
                      VerticalOptions="Start"
-                     Margin="10"/>
+                     Margin="15"/>
         <Button Grid.Row="1"
                 Grid.Column="1"
                 Text="Zaigraj"
