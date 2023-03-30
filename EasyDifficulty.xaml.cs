@@ -110,10 +110,10 @@ namespace Dinory
                 }
             }
         }
-#pragma warning disable
+        #pragma warning disable
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-#pragma warning restore
+        #pragma warning restore
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -222,6 +222,19 @@ namespace Dinory
             }
 
             return true;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            StopTimer();
+        }
+
+        private void StopTimer()
+        {
+            _timerCancellationTokenSource?.Cancel();
+            _timerCancellationTokenSource?.Dispose();
+            _timerCancellationTokenSource = null;
         }
     }
 
