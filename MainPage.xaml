@@ -37,7 +37,6 @@
                      HeightRequest="30"
                      Grid.Row="0"
                      x:Name="Sound"
-                     Clicked="Sound_Clicked"
                      Grid.Column="2"
                      HorizontalOptions="End"
                      VerticalOptions="Start"

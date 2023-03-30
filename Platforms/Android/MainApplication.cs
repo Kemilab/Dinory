@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Dinory;
+namespace Dinory.Platforms.Android;
 
 [Application]
 public class MainApplication : MauiApplication

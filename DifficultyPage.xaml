@@ -45,6 +45,8 @@
                     Padding="20"
                     Clicked="OnClickDifficultyEasy"/>
             <Button Text="Normal"
+                    x:Name="Normal"
+                    Clicked="Normal_Clicked"
                     CornerRadius="15"
                     WidthRequest="300"
                     FontSize="Medium"

@@ -58,6 +58,9 @@
 	  <None Remove="Resources\Images\dino3.svg" />
 	  <None Remove="Resources\Images\dino4.svg" />
 	  <None Remove="Resources\Images\dino5.svg" />
+	  <None Remove="Resources\Images\dino6.svg" />
+	  <None Remove="Resources\Images\dino7.svg" />
+	  <None Remove="Resources\Images\dino8.svg" />
 	  <None Remove="Resources\Images\green_dino.png" />
 	</ItemGroup>
 

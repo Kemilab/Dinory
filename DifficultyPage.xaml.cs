@@ -46,4 +46,9 @@ public partial class DifficultyPage : ContentPage
         await OnClickButtonBig(button, 100, 100);
         await this.ShowPopupAsync(new SettingsPage());
     }
+
+    private async void Normal_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new NormalDifficulty());
+    }
 }
