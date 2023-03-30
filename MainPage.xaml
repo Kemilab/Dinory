@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dinory.MainPage">
 
-    <Grid>
+    <Grid BackgroundColor="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -19,15 +19,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1"
+        <Image Grid.Row="0"
                Grid.ColumnSpan="3"
-               Text="Dinory"
-               FontSize="Large"
-               FontAttributes="Bold"
-               TextColor="White"
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center"
-               BackgroundColor="Black"
+               Source="logo.png"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
                Margin="10"/>
 
         <ImageButton Source="settings.png"
