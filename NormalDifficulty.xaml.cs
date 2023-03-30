@@ -44,7 +44,8 @@ namespace Dinory
                         BackgroundColor = Colors.Gray,
                         CornerRadius = 5,
                         ImageSource = "green.png",
-                        ContentLayout = new ButtonContentLayout(ButtonContentLayout.ImagePosition.Top, 0)
+                        ContentLayout = new ButtonContentLayout(ButtonContentLayout.ImagePosition.Top, 0),
+                       
                     };
 
                     imageButton.Clicked += (sender, e) => CardClicked(imageButton);
@@ -119,8 +120,6 @@ namespace Dinory
                 // Time has run out, handle it as needed
             }
         }
-
-
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
