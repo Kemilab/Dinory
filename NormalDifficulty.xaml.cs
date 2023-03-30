@@ -101,8 +101,9 @@ namespace Dinory
         private async Task StartCountdown(int seconds)
         {
             countdownCancellationTokenSource = new CancellationTokenSource();
-            CountdownSlider.Value = seconds;
-            for (int i = seconds; i >= 0; i--)
+            CountdownSlider.Value = 0;
+
+            for (int i = 0; i <= seconds; i++)
             {
                 if (countdownCancellationTokenSource.Token.IsCancellationRequested)
                 {
@@ -115,10 +116,10 @@ namespace Dinory
 
             if (!countdownCancellationTokenSource.Token.IsCancellationRequested)
             {
-                await DisplayAlert("Oh!", "You'r slow!", "OK");
-                await Navigation.PopAsync();
+                // Time has run out, handle it as needed
             }
         }
+
 
         protected override void OnDisappearing()
         {
