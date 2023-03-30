@@ -17,6 +17,8 @@ public partial class DifficultyPage : ContentPage
      {
         await this.ShowPopupAsync(new SettingsPage());
      }
+
+    [Obsolete]
     private async void OnClickDifficultyEasy(object sender, EventArgs e)
     {
         Button button = (Button)sender;
