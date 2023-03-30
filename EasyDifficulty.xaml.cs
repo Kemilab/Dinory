@@ -19,6 +19,7 @@ namespace Dinory
         private Button _firstButtonClicked;
         private Button _secondButtonClicked;
 
+        [Obsolete]
         public EasyDifficulty()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Dinory
             Images = Images.OrderBy(_ => random.Next()).ToList();
         }
 
-
+        [Obsolete]
         private void LoadGameBoard()
         {
             for (int i = 0; i < Rows; i++)

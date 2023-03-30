@@ -9,12 +9,5 @@
             await Button.ScaleTo(1, (uint)scaleDuration);
             await Task.Delay(delayDuration);
         }
-        public static async Task OnClickButtonBig(ImageButton ImageButton, int scaleDuration, int delayDuration)
-        {
-            await ImageButton.ScaleTo(1.3, (uint)scaleDuration);
-            await Task.Delay(delayDuration);
-            await ImageButton.ScaleTo(1, (uint)scaleDuration);
-            await Task.Delay(delayDuration);
-        }
     }
 }

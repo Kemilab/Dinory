@@ -2,11 +2,9 @@
 <ContentPage  
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Dinory.MainPage">
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -21,7 +19,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0"
+        <Label Grid.Row="1"
                Grid.ColumnSpan="3"
                Text="Dinory"
                FontSize="Large"
@@ -29,6 +27,7 @@
                TextColor="White"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
+               BackgroundColor="Black"
                Margin="10"/>
 
         <ImageButton Source="settings.png"
@@ -36,14 +35,14 @@
                      WidthRequest="30"
                      HeightRequest="30"
                      Grid.Row="0"
-                     Clicked="OnClickSettings"
+                    Clicked="OnImageSettings"
                      Grid.Column="2"
                      HorizontalOptions="End"
                      VerticalOptions="Start"
                      Margin="15"/>
-        <Button Grid.Row="1"
+        <Button Grid.Row="2"
                 Grid.Column="1"
-                Text="Zaigraj"
+                Text="Start the game"
                 FontSize="Large"
                 FontAttributes="Bold"
                 BackgroundColor="#FFC107"
@@ -54,9 +53,9 @@
                 Margin="10"
                 WidthRequest="300"/>
 
-        <Button Grid.Row="2"
+        <Button Grid.Row="3"
                 Grid.Column="1"
-                Text="Izađi iz igre"
+                Text="Exit the game"
                 FontSize="Large"
                 FontAttributes="Bold"
                 BackgroundColor="#E91E63"

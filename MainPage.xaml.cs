@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+
 namespace Dinory;
 
 public partial class MainPage : ContentPage
@@ -21,10 +22,8 @@ public partial class MainPage : ContentPage
         Application.Current.Quit();
     }
 
-    private async void OnClickSettings(object sender, EventArgs e)
+    private async void OnImageSettings(object sender, EventArgs e)
     {
-        ImageButton button = (ImageButton)sender;
-        await Buttons.OnClickButtonBig(button, 100, 150);
         await this.ShowPopupAsync(new SettingsPage());
     }
 
