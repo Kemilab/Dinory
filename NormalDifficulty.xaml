@@ -7,10 +7,11 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Slider x:Name="CountdownSlider"
-                Minimum="0"
-                Maximum="45"
-                IsEnabled="False"
-                Grid.Row="0" />
+        Minimum="0"
+        Maximum="45"
+        IsEnabled="False"
+        FlowDirection="LeftToRight"
+        Grid.Row="0" />
         <Grid x:Name="GameGrid"
               RowSpacing="5" ColumnSpacing="5"
               Margin="5"
