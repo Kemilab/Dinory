@@ -41,11 +41,10 @@ namespace Dinory
                 {
                     var imageButton = new ImageButton
                     {
-                        BackgroundColor = Colors.Gray,
                         CornerRadius = 5,
                         ImageSource = "green.png",
-                        ContentLayout = new ButtonContentLayout(ButtonContentLayout.ImagePosition.Top, 0),
-                       
+                        BackgroundColor = new Color(0.5f, 0.5f, 0.5f, 0.0f),
+                        ContentLayout = new ButtonContentLayout(ButtonContentLayout.ImagePosition.Top, 0), 
                     };
 
                     imageButton.Clicked += (sender, e) => CardClicked(imageButton);
