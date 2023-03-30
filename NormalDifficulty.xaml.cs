@@ -1,5 +1,4 @@
 using static Microsoft.Maui.Controls.Button;
-
 namespace Dinory
 {
     public partial class NormalDifficulty : ContentPage
@@ -16,6 +15,7 @@ namespace Dinory
         {
             InitializeComponent();
             InitializeGame();
+            _ = StartCountdown(45);
         }
 
         private void InitializeGame()
@@ -98,30 +98,43 @@ namespace Dinory
                 secondClickedButton = null;
             }
         }
-
         private async Task StartCountdown(int seconds)
         {
             countdownCancellationTokenSource = new CancellationTokenSource();
-            var token = countdownCancellationTokenSource.Token;
-
-            for (int i = 0; i <= seconds; i++)
+            CountdownSlider.Value = seconds;
+            for (int i = seconds; i >= 0; i--)
             {
-                if (token.IsCancellationRequested)
+                if (countdownCancellationTokenSource.Token.IsCancellationRequested)
                 {
                     break;
                 }
 
-                CountdownProgressBar.Progress = (double)i / seconds;
-                await Task.Delay(1000, token);
+                CountdownSlider.Value = i;
+                await Task.Delay(1000);
             }
 
-            if (!token.IsCancellationRequested)
+            if (!countdownCancellationTokenSource.Token.IsCancellationRequested)
             {
-                // Countdown finished, take necessary action (e.g., show a message or end the game)
-                await DisplayAlert("Time's up!", "The countdown is finished.", "OK");
+                await DisplayAlert("Oh!", "You'r slow!", "OK");
                 await Navigation.PopAsync();
             }
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            countdownCancellationTokenSource.Cancel(); // Stop the countdown when the user leaves the page
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (countdownCancellationTokenSource.IsCancellationRequested)
+            {
+                _ = StartCountdown(45); // Restart the countdown when the user re-enters the page
+            }
+        }
+
     }
 }
 
