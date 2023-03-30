@@ -1,8 +1,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dinory.NormalDifficulty">
-    <Grid x:Name="GameGrid"
-          RowDefinitions="*,*"
-          ColumnDefinitions="*,*,*,*,*,*,*,*">
+    <Grid>
+        <Grid x:Name="GameGrid"
+              RowSpacing="5" ColumnSpacing="5"
+              Margin="5"
+              RowDefinitions="*,*"
+              ColumnDefinitions="*,*,*,*,*,*,*,*">
+        </Grid>
+        <ProgressBar x:Name="CountdownProgressBar"
+                     WidthRequest="100"
+                     HeightRequest="100"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center" />
     </Grid>
 </ContentPage>

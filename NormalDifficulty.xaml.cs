@@ -1,7 +1,4 @@
-using System.IO;
-using System.Linq;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
+using static Microsoft.Maui.Controls.Button;
 
 namespace Dinory
 {
@@ -13,7 +10,8 @@ namespace Dinory
         private Dictionary<ImageButton, string> cardButtons;
         private ImageButton firstClickedButton;
         private ImageButton secondClickedButton;
-
+        private int matchedPairs;
+        private CancellationTokenSource countdownCancellationTokenSource;
         public NormalDifficulty()
         {
             InitializeComponent();
@@ -45,7 +43,10 @@ namespace Dinory
                     {
                         BackgroundColor = Colors.Gray,
                         CornerRadius = 5,
+                        ImageSource = "green.png",
+                        ContentLayout = new ButtonContentLayout(ButtonContentLayout.ImagePosition.Top, 0)
                     };
+
                     imageButton.Clicked += (sender, e) => CardClicked(imageButton);
 
                     var imageFile = cardImages[row * Columns + col];
@@ -76,17 +77,49 @@ namespace Dinory
                     secondClickedButton.IsEnabled = false;
                     cardButtons.Remove(firstClickedButton);
                     cardButtons.Remove(secondClickedButton);
+                    matchedPairs++;
+                    if (matchedPairs == Rows * Columns / 2)
+                    {
+                        // Display an alert and navigate back to DifficultyPage when the user clicks "OK"
+                        await DisplayAlert("Congratulations!", "You found all pairs!", "OK");
+                        await Navigation.PopAsync();
+                    }
                 }
                 else
                 {
-                    // Not a match, flip the cards back after a delay
-                    await Task.Delay(1000);
-                    firstClickedButton.ImageSource = null;
-                    secondClickedButton.ImageSource = null;
+
+                    await Task.Delay(500);
+                    firstClickedButton.ImageSource = "green.png";
+                    secondClickedButton.ImageSource = "green.png";
+
                 }
 
                 firstClickedButton = null;
                 secondClickedButton = null;
+            }
+        }
+
+        private async Task StartCountdown(int seconds)
+        {
+            countdownCancellationTokenSource = new CancellationTokenSource();
+            var token = countdownCancellationTokenSource.Token;
+
+            for (int i = 0; i <= seconds; i++)
+            {
+                if (token.IsCancellationRequested)
+                {
+                    break;
+                }
+
+                CountdownProgressBar.Progress = (double)i / seconds;
+                await Task.Delay(1000, token);
+            }
+
+            if (!token.IsCancellationRequested)
+            {
+                // Countdown finished, take necessary action (e.g., show a message or end the game)
+                await DisplayAlert("Time's up!", "The countdown is finished.", "OK");
+                await Navigation.PopAsync();
             }
         }
     }
