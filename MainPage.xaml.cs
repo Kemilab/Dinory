@@ -8,9 +8,12 @@ namespace Dinory;
 
 public partial class MainPage : ContentPage
 {
+    private AudioPlayerViewModel _audioPlayerViewModel;
     public MainPage()
     {
         InitializeComponent();
+        _audioPlayerViewModel = new AudioPlayerViewModel();
+        _audioPlayerViewModel.PlayAudio();
     }
 
     private async void OnClickStartGame(object sender, EventArgs e)
@@ -30,5 +33,14 @@ public partial class MainPage : ContentPage
         await this.ShowPopupAsync(new SettingsPage());
     }
 
-    
+    public class AudioPlayerViewModel
+    {
+        public async void PlayAudio()
+        {
+            var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("caves.mp3"));
+
+            audioPlayer.Play();
+        }
+    }
+
 }
