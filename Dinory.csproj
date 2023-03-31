@@ -63,6 +63,7 @@
 	  <None Remove="Resources\Images\dino8.svg" />
 	  <None Remove="Resources\Images\green_dino.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Raw\back.mp3" />
 	</ItemGroup>
 
 	<ItemGroup>
