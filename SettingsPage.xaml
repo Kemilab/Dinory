@@ -16,17 +16,20 @@
                    FontSize="Subtitle"
                    Margin="10"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
-            <Switch IsToggled="{Binding IsMusicPlaying, Mode=TwoWay}"
-                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>/>
-            <Button Text="Exit the game"
-                    FontSize="Subtitle"
-                    Padding="15, 5"
-                    CornerRadius="15"
-                    Clicked="OnClickExit"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"/>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+                   Margin="30"/>
+            <HorizontalStackLayout>
+                <Label x:Name="Music"
+                        Text="Music"
+                       FontSize="Subtitle"
+                       Margin="10"/>
+                <Switch x:Name="AudioSwitch" Toggled="OnAudioSwitchToggled"/>
+                <Button Text="Exit the game"
+                     FontSize="Subtitle"
+                     Padding="15, 5"
+                     CornerRadius="15"
+                     Margin="150,0"
+                     Clicked="OnClickExit"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Frame>
 </toolkit:Popup>
