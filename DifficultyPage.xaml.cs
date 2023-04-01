@@ -11,6 +11,7 @@ public partial class DifficultyPage : ContentPage
 
     private async void OnClickReturnPage(object sender, EventArgs e)
     { 
+
         await Navigation.PopAsync();
     }
      private async void OnClickSettings(object sender, EventArgs e)
@@ -25,8 +26,6 @@ public partial class DifficultyPage : ContentPage
         await Buttons.OnClickButtonSmall(button, 100, 150);
         await Navigation.PushAsync(new EasyDifficulty());
     }
-
-   
 
     private async void OnClickDifficultyNormal(object sender, EventArgs e)
     {

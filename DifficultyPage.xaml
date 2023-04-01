@@ -9,7 +9,7 @@
             <Grid HeightRequest="50"
                   ColumnDefinitions=".05*,*,.05*"
                   RowDefinitions="50">
-                <ImageButton Source="double_arrow_back.png"
+                <ImageButton Source="return.png"
                              BackgroundColor="Transparent"
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
