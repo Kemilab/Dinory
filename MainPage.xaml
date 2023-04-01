@@ -5,7 +5,7 @@
              x:Class="Dinory.MainPage"
              BackgroundImageSource="background.png">
 
-    <VerticalStackLayout Spacing="80"
+    <VerticalStackLayout Spacing="120"
                          VerticalOptions="Start"
                          HorizontalOptions="Center">
         <Image Source="logo.png"
@@ -14,7 +14,7 @@
                HeightRequest="325"
                WidthRequest="700"
                Aspect="AspectFit"
-               Margin="50"/>
+               Margin="30"/>
         <Button Text="Press to start"
                 CornerRadius="15"
                 WidthRequest="300"

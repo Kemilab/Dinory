@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
              x:Class="Dinory.DifficultyPage">
     <maui:ContentPage.Background>
         <maui:RadialGradientBrush Center="0.5,0.5" Radius="1.5">
             <maui:GradientStop Offset="0" Color="#194018"/>
-            <maui:GradientStop Offset="1" Color="#FFD314"/>
+            <maui:GradientStop Offset="1" Color="#D7E356"/>
         </maui:RadialGradientBrush>
     </maui:ContentPage.Background>
     <VerticalStackLayout>
@@ -45,7 +46,7 @@
                    FontSize="Header"
                    FontAttributes="Bold"
                    Padding="15"
-                   Margin="50"/>
+                   Margin="55"/>
             <Button Text="Easy"
                     Clicked="OnClickDifficultyEasy"
                     CornerRadius="15"
