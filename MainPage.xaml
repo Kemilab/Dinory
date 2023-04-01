@@ -5,7 +5,7 @@
              x:Class="Dinory.MainPage"
              BackgroundImageSource="background.png">
 
-    <VerticalStackLayout Spacing="120"
+    <VerticalStackLayout Spacing="80"
                          VerticalOptions="Start"
                          HorizontalOptions="Center">
         <Image Source="logo.png"
@@ -14,17 +14,17 @@
                HeightRequest="325"
                WidthRequest="700"
                Aspect="AspectFit"
-               Margin="30"/>
+               Margin="50"/>
         <Button Text="Press to start"
                 CornerRadius="15"
                 WidthRequest="300"
                 FontSize="Large"
                 FontAttributes="Bold"
                 Padding="15"
-                TextColor="OrangeRed"
-                BackgroundColor="#D9E47A"
-                BorderColor="OrangeRed"
-                BorderWidth="5"
+                TextColor="#9F5E33"
+                BackgroundColor="#FFD314"
+                BorderColor="#9F5E33"
+                BorderWidth="6"
                 Clicked="OnClickStartGame"/>
     </VerticalStackLayout>
 </ContentPage>

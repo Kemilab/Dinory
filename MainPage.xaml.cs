@@ -12,8 +12,8 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        _audioPlayerViewModel = new AudioPlayerViewModel();
-        _audioPlayerViewModel.PlayAudio();
+        //_audioPlayerViewModel = new AudioPlayerViewModel();
+        //_audioPlayerViewModel.PlayAudio();
     }
 
     private async void OnClickStartGame(object sender, EventArgs e)
