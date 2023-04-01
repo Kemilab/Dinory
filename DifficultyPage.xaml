@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
              x:Class="Dinory.DifficultyPage">
-
-    <VerticalStackLayout Spacing="75">
-        <Frame BorderColor="Transparent">
+    <maui:ContentPage.Background>
+        <maui:RadialGradientBrush Center="0.5,0.5" Radius="1.5">
+            <maui:GradientStop Offset="0" Color="#194018"/>
+            <maui:GradientStop Offset="1" Color="#FFD314"/>
+        </maui:RadialGradientBrush>
+    </maui:ContentPage.Background>
+    <VerticalStackLayout>
+        <Frame BorderColor="Transparent"
+               BackgroundColor="Transparent">
             <Grid HeightRequest="50"
                   ColumnDefinitions=".05*,*,.05*"
                   RowDefinitions="50">
@@ -33,31 +39,47 @@
                              HorizontalOptions="Center"
                              Spacing="10">
             <Label Text="CHOOSE THE DIFFICULTY"
+                   TextColor="#D9E47A"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   FontSize="Large"
+                   FontSize="Header"
+                   FontAttributes="Bold"
                    Padding="15"
                    Margin="50"/>
             <Button Text="Easy"
+                    Clicked="OnClickDifficultyEasy"
                     CornerRadius="15"
                     WidthRequest="300"
-                    FontSize="Medium"
-                    Padding="20"
-                    Clicked="OnClickDifficultyEasy"/>
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Padding="15"
+                    TextColor="#D9E47A"
+                    BackgroundColor="#9F5E33"
+                    BorderColor="#D9E47A"
+                    BorderWidth="6"/>
             <Button Text="Normal"
-                    x:Name="Normal"
                     Clicked="OnClickDifficultyNormal"
                     CornerRadius="15"
                     WidthRequest="300"
-                    FontSize="Medium"
-                    Padding="20"/>
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Padding="15"
+                    TextColor="#D9E47A"
+                    BackgroundColor="#9F5E33"
+                    BorderColor="#D9E47A"
+                    BorderWidth="6"/>
             <Button Text="Hard"
                     x:Name="Hard"
                     Clicked="Hard_Clicked_1"
                     CornerRadius="15"
                     WidthRequest="300"
-                    FontSize="Medium"
-                    Padding="20"/>
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Padding="15"
+                    TextColor="#D9E47A"
+                    BackgroundColor="#9F5E33"
+                    BorderColor="#D9E47A"
+                    BorderWidth="6"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
