@@ -87,6 +87,9 @@
 	  <MauiXaml Update="EasyDifficulty.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="hard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="NormalDifficulty.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

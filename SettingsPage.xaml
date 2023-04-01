@@ -15,7 +15,7 @@
                         Text="Music"
                        FontSize="Subtitle"
                        Margin="10"/>
-                <Switch IsToggled="{Binding IsMusicPlaying, Mode=TwoWay}"/>
+                <Switch x:Name="AudioSwitch" Toggled="OnAudioSwitchToggled"/>
                 <Button Text="Exit the game"
                      FontSize="Subtitle"
                      Padding="15, 5"

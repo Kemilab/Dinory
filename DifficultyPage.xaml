@@ -52,6 +52,8 @@
                     FontSize="Medium"
                     Padding="20"/>
             <Button Text="Hard"
+                    x:Name="Hard"
+                    Clicked="Hard_Clicked_1"
                     CornerRadius="15"
                     WidthRequest="300"
                     FontSize="Medium"

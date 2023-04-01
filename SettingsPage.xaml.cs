@@ -1,34 +1,36 @@
 using CommunityToolkit.Maui.Views;
-using Plugin.Maui.Audio;
+using Dinory.Services;
+using System;
+using Microsoft.Maui.Controls;
 
-namespace Dinory;
-
-public partial class SettingsPage : Popup
+namespace Dinory
 {
-    public SettingsPage()
+    public partial class SettingsPage : Popup
     {
-        InitializeComponent();
-    }
-    private void OnClickExit(object sender, EventArgs e)
-    {
-        Application.Current.Quit();
-    }
-    private async void Switch_Toggled(object sender, ToggledEventArgs e)
-    {
-        bool isSwitchToggled = e.Value;
-        if (isSwitchToggled == false)
+        public SettingsPage()
         {
-            var Player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("caves.mp3"));
-            Player.Pause();
+            InitializeComponent();
+            LoadSwitchState();
         }
-        if (isSwitchToggled == true)
+
+        private void LoadSwitchState()
         {
-            var Player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("caves.mp3"));
-            Player.Play();
+            AudioSwitch.IsToggled = Preferences.Get("AudioSwitchState", false);
+            AudioPlayerService.Instance.ToggleAudio(AudioSwitch.IsToggled);
+        }
+
+        private void OnClickExit(object sender, EventArgs e)
+        {
+            Application.Current.Quit();
+        }
+
+        public event EventHandler<bool> AudioToggled;
+
+        private void OnAudioSwitchToggled(object sender, ToggledEventArgs e)
+        {
+            AudioToggled?.Invoke(sender, e.Value);
+            AudioPlayerService.Instance.ToggleAudio(e.Value);
+            Preferences.Set("AudioSwitchState", e.Value);
         }
     }
 }
-
-
-
-

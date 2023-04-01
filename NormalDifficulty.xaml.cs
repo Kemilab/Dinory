@@ -116,7 +116,8 @@ namespace Dinory
 
             if (!countdownCancellationTokenSource.Token.IsCancellationRequested)
             {
-                // Time has run out, handle it as needed
+                await DisplayAlert("Oh!", "You'r slow!", "Take me home!");
+                await Navigation.PopAsync();
             }
         }
         protected override void OnDisappearing()
