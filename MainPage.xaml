@@ -2,63 +2,29 @@
 <ContentPage  
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Dinory.MainPage">
+             x:Class="Dinory.MainPage"
+             BackgroundImageSource="background.png">
 
-    <Grid BackgroundColor="Black">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <Image Grid.Row="0"
-               Grid.ColumnSpan="3"
-               Source="logo.png"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               Margin="10"/>
-
-        <ImageButton Source="settings.png"
-                     BackgroundColor="White"
-                     WidthRequest="30"
-                     HeightRequest="30"
-                     Grid.Row="0"
-                    Clicked="OnImageSettings"
-                     Grid.Column="2"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Margin="15"/>
-        <Button Grid.Row="2"
-                Grid.Column="1"
-                Text="Start the game"
-                FontSize="Large"
-                FontAttributes="Bold"
-                BackgroundColor="#FFC107"
-                TextColor="White"
-                CornerRadius="10"
-                Clicked="OnClickStartGame"
-                HorizontalOptions="Center"
-                Margin="10"
-                WidthRequest="300"/>
-
-        <Button Grid.Row="3"
-                Grid.Column="1"
-                Text="Exit the game"
-                FontSize="Large"
-                FontAttributes="Bold"
-                BackgroundColor="#E91E63"
-                TextColor="White"
-                CornerRadius="10"
-                Clicked="OnClickCloseGame"
+    <VerticalStackLayout Spacing="120"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Center">
+        <Image Source="logo.png"
+               BackgroundColor="Transparent"
+               MaximumHeightRequest="500"
+               HeightRequest="325"
+               WidthRequest="700"
+               Aspect="AspectFit"
+               Margin="30"/>
+        <Button Text="Press to start"
+                CornerRadius="15"
                 WidthRequest="300"
-                HorizontalOptions="Center"/>
-    </Grid>
+                FontSize="Large"
+                FontAttributes="Bold"
+                Padding="15"
+                TextColor="OrangeRed"
+                BackgroundColor="#D9E47A"
+                BorderColor="OrangeRed"
+                BorderWidth="5"
+                Clicked="OnClickStartGame"/>
+    </VerticalStackLayout>
 </ContentPage>
