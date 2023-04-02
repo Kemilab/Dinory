@@ -16,7 +16,7 @@
         <Slider x:Name="TimerSlider"
                 Grid.Row="1"
                 Minimum="0"
-                Maximum="60"
+                Maximum="65"
                 IsEnabled="false"
                 ThumbColor="DarkGreen"/>
 
