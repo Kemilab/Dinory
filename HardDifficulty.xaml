@@ -1,22 +1,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dinory.HardDifficulty"
-             BackgroundColor="White">
+             BackgroundColor="#D9E47A">
 
-    <Grid RowDefinitions="Auto, *, Auto">
+    <Grid RowDefinitions="Auto,Auto, *, Auto"
+          Padding="20">
+        <ImageButton Source="settings.png"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="EndAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             WidthRequest="20"
+                             HeightRequest="20"
+                             Clicked="OnClickSettings"
+                             Grid.Row="0"/>
         <Slider x:Name="TimerSlider"
-                Grid.Row="0"
+                Grid.Row="1"
                 Minimum="0"
                 Maximum="60"
                 IsEnabled="false" />
 
         <Grid x:Name="CardsGrid"
-              Grid.Row="1"
-              Margin="10"
+              Grid.Row="2"
               RowDefinitions="*, *, *"
               ColumnDefinitions="*, *, *, *, *, *, *, *"
-              RowSpacing="5"      
-              ColumnSpacing="5">
+              RowSpacing="2"      
+              ColumnSpacing="2">
         </Grid>
     </Grid>
 </ContentPage>
