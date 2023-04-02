@@ -53,7 +53,7 @@ namespace Dinory
                 {
                     var imageSource = new Image
                     {
-                        Source = "green.png",
+                        Source = "red.png",
                         Aspect = Aspect.AspectFill
                     };
                     var imageButton = new ImageButton

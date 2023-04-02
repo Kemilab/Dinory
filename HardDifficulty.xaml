@@ -18,12 +18,5 @@
               RowSpacing="5"      
               ColumnSpacing="5">
         </Grid>
-
-        <Label x:Name="GameStatusLabel"
-               Grid.Row="2"
-               Text="Find all pairs!"
-               FontSize="Large"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
     </Grid>
 </ContentPage>
