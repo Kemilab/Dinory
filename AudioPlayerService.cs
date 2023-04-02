@@ -32,7 +32,7 @@ namespace Dinory.Services
             }
             else
             {
-                _audioPlayer.Stop();
+                _audioPlayer.Pause();
             }
         }
     }

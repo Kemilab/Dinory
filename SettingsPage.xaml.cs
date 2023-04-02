@@ -22,6 +22,7 @@ namespace Dinory
         private async void OnClickExit(object sender, EventArgs e)
         {
             Button button = (Button)sender;
+            AudioSwitch.IsToggled = false;
             await Buttons.OnClickButtonSmall(button, 100, 150);
             Application.Current.Quit();
         }
