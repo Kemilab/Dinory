@@ -6,14 +6,14 @@
              BackgroundImageSource="background.png">
 
     <VerticalStackLayout Spacing="120"
-                         VerticalOptions="Start"
-                         HorizontalOptions="Center">
+                         VerticalOptions="StartAndExpand"
+                         HorizontalOptions="CenterAndExpand">
         <Image Source="logo.png"
                BackgroundColor="Transparent"
                MaximumHeightRequest="500"
                HeightRequest="325"
                WidthRequest="700"
-               Aspect="AspectFit"
+               Aspect="Fill"
                Margin="30"/>
         <Button Text="Press to start"
                 CornerRadius="15"

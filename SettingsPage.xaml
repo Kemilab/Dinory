@@ -3,25 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Dinory.SettingsPage">
-    <VerticalStackLayout>
-        <Label Text="Settings" 
+    <VerticalStackLayout BackgroundColor="#D9E47A">
+        <Label Text="SETTINGS" 
                    FontSize="Large" 
                    FontAttributes="Bold" 
-                   HorizontalOptions="Start"
+                   HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   Margin="50"/>
-        <HorizontalStackLayout>
-                <Label x:Name="Music"
-                        Text="Music"
-                       FontSize="Subtitle"
-                       Margin="10"/>
-                <Switch x:Name="AudioSwitch" Toggled="OnAudioSwitchToggled"/>
-                <Button Text="Exit the game"
+                   Margin="0, 50, 0, 65"
+                   TextColor="#9F5E33"/>
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand">
+            <Label x:Name="Music"
+                   Text="Music"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#9F5E33"
+                   Margin="15"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            <Switch x:Name="AudioSwitch" 
+                     Toggled="OnAudioSwitchToggled"
+                    OnColor="#4F9900"
+                    ThumbColor="DarkGreen"/>
+            <Button Text="Exit the game"
                      FontSize="Subtitle"
-                     Padding="15, 5"
+                     FontAttributes="Bold"
+                     Padding="15"
                      CornerRadius="15"
-                     Margin="150,0"
-                     Clicked="OnClickExit"/>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
+                     Clicked="OnClickExit"
+                     BorderWidth="4"
+                     TextColor="Red"
+                     BorderColor="Red"
+                     BackgroundColor="#9F5E33"
+                    />
+        </HorizontalStackLayout>
+        
+        
+    </VerticalStackLayout>
 </toolkit:Popup>
