@@ -99,11 +99,11 @@ namespace Dinory
 
                 if (cardButtons[firstClickedButton] == cardButtons[secondClickedButton])
                 {
-                    // Matched pair found
+                    
                     matchedPairs++;
                     numberOfTries++;
 
-                    // If all pairs are matched, end the game
+                    
                     if (matchedPairs == Rows * Columns / 2)
                     {
                         countdownCancellationTokenSource.Cancel();
@@ -116,7 +116,7 @@ namespace Dinory
                 }
                 else
                 {
-                    // Not a match, flip the cards back after a short delay
+                    
                     await Task.Delay(10);
 
                     await firstClickedButton.RotateYTo(90);

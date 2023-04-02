@@ -9,8 +9,8 @@
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/Kemilab/Dinory/master)
 ## Authors
 
-- [@JUSTNice](https://github.com/JUSTNic3)
-- [@Rubinchi](https://github.com/Rubinich)
+- [@JUSTNic3](https://github.com/JUSTNic3)
+- [@Rubinich](https://github.com/Rubinich)
 - [@Kemilab](https://github.com/Kemilab)
 
 
