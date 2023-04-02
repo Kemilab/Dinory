@@ -24,7 +24,7 @@ namespace Dinory
         {
             InitializeComponent();
             InitializeGame();
-            _ = StartCountdown(60);
+            _ = StartCountdown(70);
         }
         private async void OnClickSettings(object sender, EventArgs e)
         {
@@ -86,12 +86,17 @@ namespace Dinory
             if (firstClickedButton == null)
             {
                 firstClickedButton = imageButton;
+                await firstClickedButton.RotateYTo(90);
                 imageButton.ImageSource = cardButtons[imageButton];
+                await firstClickedButton.RotateYTo(0);
             }
             else if (firstClickedButton != imageButton && secondClickedButton == null)
             {
                 secondClickedButton = imageButton;
+                await secondClickedButton.RotateYTo(90);
                 imageButton.ImageSource = cardButtons[imageButton];
+                await secondClickedButton.RotateYTo(0);
+
                 if (cardButtons[firstClickedButton] == cardButtons[secondClickedButton])
                 {
                     // Matched pair found
@@ -112,9 +117,15 @@ namespace Dinory
                 else
                 {
                     // Not a match, flip the cards back after a short delay
-                    await Task.Delay(500);
+                    await Task.Delay(10);
+
+                    await firstClickedButton.RotateYTo(90);
                     firstClickedButton.ImageSource = "red.png";
+                    await firstClickedButton.RotateYTo(0);
+
+                    await secondClickedButton.RotateYTo(90);
                     secondClickedButton.ImageSource = "red.png";
+                    await secondClickedButton.RotateYTo(0);
 
                     firstClickedButton = null;
                     secondClickedButton = null;
@@ -122,12 +133,14 @@ namespace Dinory
             }
         }
 
+
+
         private async Task StartCountdown(int seconds)
         {
             countdownCancellationTokenSource = new CancellationTokenSource();
             var token = countdownCancellationTokenSource.Token;
 
-            for (int i = seconds; i >= 0; i--)
+            for (int i = 0; i <= seconds; i++)
             {
                 if (token.IsCancellationRequested)
                 {
@@ -145,6 +158,7 @@ namespace Dinory
             }
         }
 
+
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -156,7 +170,7 @@ namespace Dinory
             base.OnAppearing();
             if (countdownCancellationTokenSource.IsCancellationRequested)
             {
-                _ = StartCountdown(60); // Restart the countdown when the user re-enters the page
+                _ = StartCountdown(70); // Restart the countdown when the user re-enters the page
             }
         }
     }

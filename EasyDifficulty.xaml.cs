@@ -102,7 +102,7 @@ namespace Dinory
                 }
             }
         }
-        private double _countdownValue = 30;
+        private double _countdownValue = 45;
         public double CountdownValue
         {
             get => _countdownValue;
@@ -201,7 +201,7 @@ namespace Dinory
                 }
                 else
                 {
-                    await Task.Delay(400);
+                    await Task.Delay(10);
                     await cardGrid.RotateYTo(90, 100);
                     ((cardGrid.Children[0] as Image).IsVisible) = false;
                     button.BackgroundColor = Colors.Gray;

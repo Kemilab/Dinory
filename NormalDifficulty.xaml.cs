@@ -16,7 +16,7 @@ namespace Dinory
         {
             InitializeComponent();
             InitializeGame();
-            _ = StartCountdown(45);
+            _ = StartCountdown(55);
         }
         private async void OnClickSettings(object sender, EventArgs e)
         {
@@ -67,12 +67,16 @@ namespace Dinory
             if (firstClickedButton == null)
             {
                 firstClickedButton = imageButton;
+                await imageButton.RotateYTo(90);
                 imageButton.ImageSource = cardButtons[imageButton];
+                await imageButton.RotateYTo(0);
             }
             else if (firstClickedButton != imageButton && secondClickedButton == null)
             {
                 secondClickedButton = imageButton;
+                await imageButton.RotateYTo(90);
                 imageButton.ImageSource = cardButtons[imageButton];
+                await imageButton.RotateYTo(0);
 
                 if (cardButtons[firstClickedButton] == cardButtons[secondClickedButton])
                 {
@@ -91,10 +95,14 @@ namespace Dinory
                 }
                 else
                 {
-
-                    await Task.Delay(500);
+                    await Task.Delay(10);
+                    await firstClickedButton.RotateYTo(90);
                     firstClickedButton.ImageSource = "green.png";
+                    await firstClickedButton.RotateYTo(0);
+
+                    await secondClickedButton.RotateYTo(90);
                     secondClickedButton.ImageSource = "green.png";
+                    await secondClickedButton.RotateYTo(0);
 
                 }
 
@@ -102,6 +110,7 @@ namespace Dinory
                 secondClickedButton = null;
             }
         }
+
         private async Task StartCountdown(int seconds)
         {
             countdownCancellationTokenSource = new CancellationTokenSource();
@@ -135,7 +144,7 @@ namespace Dinory
             base.OnAppearing();
             if (countdownCancellationTokenSource.IsCancellationRequested)
             {
-                _ = StartCountdown(45); // Restart the countdown when the user re-enters the page
+                _ = StartCountdown(55); // Restart the countdown when the user re-enters the page
             }
         }
 
