@@ -10,7 +10,7 @@
 ## Authors
 
 - [@JUSTNice](https://github.com/JUSTNic3)
-- [@Rubinchi](https://github.com/Rubinich)
+- [@Rubinich](https://github.com/Rubinich)
 - [@Kemilab](https://github.com/Kemilab)
 
 
