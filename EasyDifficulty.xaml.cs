@@ -169,8 +169,12 @@ namespace Dinory
             var imageIndex = row * Columns + column;
             var imageSource = ImageSource.FromFile(Images[imageIndex]);
 
-            ((button.Parent as Grid).Children[0] as Image).IsVisible = true;
+            // Add rotation animation
+            var cardGrid = button.Parent as Grid;
+            await cardGrid.RotateYTo(90, 100);
+            ((cardGrid.Children[0] as Image).IsVisible) = true;
             button.BackgroundColor = Colors.Transparent;
+            await cardGrid.RotateYTo(0, 100);
 
             if (_firstButtonClicked == null)
             {
@@ -197,16 +201,24 @@ namespace Dinory
                 }
                 else
                 {
-                    ((_firstButtonClicked.Parent as Grid).Children[0] as Image).IsVisible = false;
+                    await Task.Delay(400);
+                    await cardGrid.RotateYTo(90, 100);
+                    ((cardGrid.Children[0] as Image).IsVisible) = false;
+                    button.BackgroundColor = Colors.Gray;
+                    await cardGrid.RotateYTo(0, 100);
+
+                    var firstCardGrid = _firstButtonClicked.Parent as Grid;
+                    await firstCardGrid.RotateYTo(90, 100);
+                    ((firstCardGrid.Children[0] as Image).IsVisible) = false;
                     _firstButtonClicked.BackgroundColor = Colors.Gray;
-                    ((_secondButtonClicked.Parent as Grid).Children[0] as Image).IsVisible = false;
-                    _secondButtonClicked.BackgroundColor = Colors.Gray;
+                    await firstCardGrid.RotateYTo(0, 100);
                 }
 
                 _firstButtonClicked = null;
                 _secondButtonClicked = null;
             }
         }
+
 
 
 

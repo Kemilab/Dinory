@@ -16,7 +16,6 @@
                 <Setter Property="WidthRequest" Value="80" />
             </Style>
         </Grid.Resources>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
