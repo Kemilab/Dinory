@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using static Microsoft.Maui.Controls.Button;
 namespace Dinory
 {
@@ -17,7 +18,10 @@ namespace Dinory
             InitializeGame();
             _ = StartCountdown(45);
         }
-
+        private async void OnClickSettings(object sender, EventArgs e)
+        {
+            await this.ShowPopupAsync(new SettingsPage());
+        }
         private void InitializeGame()
         {
             cardImages = new List<string>

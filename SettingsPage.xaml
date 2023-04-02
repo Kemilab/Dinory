@@ -22,7 +22,7 @@
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="CenterAndExpand"/>
             <Switch x:Name="AudioSwitch" 
-                     Toggled="OnAudioSwitchToggled"
+                    Toggled="OnAudioSwitchToggled"
                     OnColor="#4F9900"
                     ThumbColor="DarkGreen"/>
             <Button Text="Exit the game"

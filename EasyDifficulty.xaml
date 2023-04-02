@@ -1,8 +1,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dinory.EasyDifficulty"
+             xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-
+    <maui:ContentPage.Background>
+        <maui:LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <maui:GradientStop Offset="0" Color="#D9E47A"/>
+            <maui:GradientStop Offset="1" Color="#D9E47A"/>
+        </maui:LinearGradientBrush>
+    </maui:ContentPage.Background>
     <Grid Padding="20">
         <Grid.Resources>
             <Style TargetType="Button">
@@ -13,11 +19,19 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        <ImageButton Source="settings.png"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="EndAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             WidthRequest="20"
+                             HeightRequest="20"
+                             Clicked="OnClickSettings"
+                             Grid.Row="0"/>
         <Slider x:Name="CountdownSlider"
-                Grid.Row="0"
+                Grid.Row="1"
                 Maximum="30"
                 Minimum="0"
                 Value="{Binding CountdownValue}"
@@ -25,7 +39,7 @@
                 FlowDirection="RightToLeft" />
 
         <Grid x:Name="GameBoardGrid"
-              Grid.Row="1"
+              Grid.Row="2"
               ColumnSpacing="10"
               RowSpacing="10" />
     </Grid>

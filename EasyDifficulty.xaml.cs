@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 namespace Dinory
 {
@@ -27,6 +28,10 @@ namespace Dinory
             StartTimer();
             BindingContext = this;
             LoadGameBoard();
+        }
+        private async void OnClickSettings(object sender, EventArgs e)
+        {
+            await this.ShowPopupAsync(new SettingsPage());
         }
 
         private void InitializeImages()
@@ -269,6 +274,7 @@ namespace Dinory
         public ImageSource CardImage { get; set; }
         public bool IsImageVisible { get; set; }
     }
+
 }
 
 
