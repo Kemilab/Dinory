@@ -44,9 +44,9 @@ namespace Dinory
                 "dino7.png", "dino7.png",
                 "dino8.png", "dino8.png",
                 "dino9.png", "dino9.png",
-                "dino9.png", "dino9.png",
-                "dino9.png", "dino9.png",
-                "dino9.png", "dino9.png"
+                "dino10.png", "dino10.png",
+                "dino11.png", "dino11.png",
+                "dino12.png", "dino12.png"
             };
 
             cardImages = cardImages.OrderBy(x => Guid.NewGuid()).ToList();

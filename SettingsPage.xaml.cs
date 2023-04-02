@@ -18,7 +18,6 @@ namespace Dinory
             AudioSwitch.IsToggled = Preferences.Get("AudioSwitchState", false);
             AudioPlayerService.Instance.ToggleAudio(AudioSwitch.IsToggled);
         }
-
         private async void OnClickExit(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -26,9 +25,7 @@ namespace Dinory
             await Buttons.OnClickButtonSmall(button, 100, 150);
             Application.Current.Quit();
         }
-
         public event EventHandler<bool> AudioToggled;
-
         private void OnAudioSwitchToggled(object sender, ToggledEventArgs e)
         {
             AudioToggled?.Invoke(sender, e.Value);

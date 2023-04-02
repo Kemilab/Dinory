@@ -54,6 +54,9 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\dino1.svg" />
+	  <None Remove="Resources\Images\dino10.svg" />
+	  <None Remove="Resources\Images\dino11.svg" />
+	  <None Remove="Resources\Images\dino12.svg" />
 	  <None Remove="Resources\Images\dino2.svg" />
 	  <None Remove="Resources\Images\dino3.svg" />
 	  <None Remove="Resources\Images\dino4.svg" />
