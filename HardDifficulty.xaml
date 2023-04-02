@@ -17,7 +17,8 @@
                 Grid.Row="1"
                 Minimum="0"
                 Maximum="60"
-                IsEnabled="false" />
+                IsEnabled="false"
+                ThumbColor="DarkGreen"/>
 
         <Grid x:Name="CardsGrid"
               Grid.Row="2"

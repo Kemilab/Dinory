@@ -35,7 +35,8 @@
                 Minimum="0"
                 Value="{Binding CountdownValue}"
                 IsEnabled="False"
-                FlowDirection="RightToLeft" />
+                FlowDirection="RightToLeft"
+                ThumbColor="DarkGreen"/>
 
         <Grid x:Name="GameBoardGrid"
               Grid.Row="2"

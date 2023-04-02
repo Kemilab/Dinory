@@ -27,7 +27,8 @@
         Maximum="45"
         IsEnabled="False"
         FlowDirection="LeftToRight"
-        Grid.Row="1" />
+        Grid.Row="1"
+                ThumbColor="DarkGreen"/>
         <Grid x:Name="GameGrid"
               RowSpacing="5" ColumnSpacing="5"
               Margin="5"
