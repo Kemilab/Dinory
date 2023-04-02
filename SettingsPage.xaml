@@ -9,7 +9,7 @@
                    FontAttributes="Bold" 
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   Margin="0, 50, 0, 65"
+                   Margin="0, 50, 0, 50"
                    TextColor="#9F5E33"/>
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand">
@@ -34,10 +34,14 @@
                      BorderWidth="4"
                      TextColor="Red"
                      BorderColor="Red"
-                     BackgroundColor="#9F5E33"
-                    />
+                     BackgroundColor="#9F5E33"/>
         </HorizontalStackLayout>
-        
-        
+        <Label Text="Made by Luka Kotorac, Luka Salaj, Alojz Rubinić"
+               FontAttributes="Italic"
+               FontSize="Micro"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="EndAndExpand"
+               Margin="0, 50, 0, 0"
+               TextColor="DarkGreen"/>
     </VerticalStackLayout>
 </toolkit:Popup>
