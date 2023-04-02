@@ -11,6 +11,7 @@ namespace Dinory
         private ImageButton firstClickedButton;
         private ImageButton secondClickedButton;
         private int matchedPairs;
+        private int numberOfTries;
         private CancellationTokenSource countdownCancellationTokenSource;
         public NormalDifficulty()
         {
@@ -86,6 +87,7 @@ namespace Dinory
                     cardButtons.Remove(firstClickedButton);
                     cardButtons.Remove(secondClickedButton);
                     matchedPairs++;
+                    numberOfTries++;
                     if (matchedPairs == Rows * Columns / 2)
                     {
                         // Display an alert and navigate back to DifficultyPage when the user clicks "OK"
@@ -129,7 +131,7 @@ namespace Dinory
 
             if (!countdownCancellationTokenSource.Token.IsCancellationRequested)
             {
-                await DisplayAlert("Oh!", "You'r slow!", "Take me home!");
+                await DisplayAlert("Oh!", $"You ran out of time! You made {numberOfTries} tries.", "Take me home!");
                 await Navigation.PopAsync();
             }
         }
