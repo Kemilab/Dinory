@@ -5,7 +5,7 @@
              x:Class="Dinory.MainPage"
              BackgroundImageSource="background.png">
 
-    <VerticalStackLayout Spacing="120"
+    <VerticalStackLayout Spacing="150"
                          VerticalOptions="StartAndExpand"
                          HorizontalOptions="CenterAndExpand">
         <Image Source="logo.png"

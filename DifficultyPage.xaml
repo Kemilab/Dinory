@@ -46,7 +46,7 @@
                    FontSize="Header"
                    FontAttributes="Bold"
                    Padding="15"
-                   Margin="55"/>
+                   Margin="75"/>
             <Button Text="Easy"
                     Clicked="OnClickDifficultyEasy"
                     CornerRadius="15"

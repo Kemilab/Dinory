@@ -19,8 +19,10 @@ namespace Dinory
             AudioPlayerService.Instance.ToggleAudio(AudioSwitch.IsToggled);
         }
 
-        private void OnClickExit(object sender, EventArgs e)
+        private async void OnClickExit(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
+            await Buttons.OnClickButtonSmall(button, 100, 150);
             Application.Current.Quit();
         }
 
