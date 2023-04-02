@@ -16,7 +16,7 @@ namespace Dinory
         {
             InitializeComponent();
             InitializeGame();
-            _ = StartCountdown(55);
+            _ = StartCountdown(50);
         }
         private async void OnClickSettings(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace Dinory
             base.OnAppearing();
             if (countdownCancellationTokenSource.IsCancellationRequested)
             {
-                _ = StartCountdown(55); // Restart the countdown when the user re-enters the page
+                _ = StartCountdown(50); // Restart the countdown when the user re-enters the page
             }
         }
 

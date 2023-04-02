@@ -102,7 +102,7 @@ namespace Dinory
                 }
             }
         }
-        private double _countdownValue = 45;
+        private double _countdownValue = 40;
         public double CountdownValue
         {
             get => _countdownValue;
