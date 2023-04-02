@@ -31,7 +31,7 @@
                              Grid.Row="0"/>
         <Slider x:Name="CountdownSlider"
                 Grid.Row="1"
-                Maximum="30"
+                Maximum="40"
                 Minimum="0"
                 Value="{Binding CountdownValue}"
                 IsEnabled="False"

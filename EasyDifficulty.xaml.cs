@@ -127,7 +127,7 @@ namespace Dinory
         {
             _timerCancellationTokenSource = new CancellationTokenSource();
 
-            DateTime endTime = DateTime.Now.AddSeconds(30);
+            DateTime endTime = DateTime.Now.AddSeconds(40);
 
             while (true)
             {

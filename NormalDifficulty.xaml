@@ -24,7 +24,7 @@
                              Grid.Row="0"/>
         <Slider x:Name="CountdownSlider"
         Minimum="0"
-        Maximum="45"
+        Maximum="50"
         IsEnabled="False"
         FlowDirection="LeftToRight"
         Grid.Row="1"
