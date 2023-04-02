@@ -38,6 +38,6 @@ public partial class DifficultyPage : ContentPage
     {
         Button button = (Button)sender;
         await Buttons.OnClickButtonSmall(button, 100, 150);
-        await Navigation.PushAsync(new hard());
+        await Navigation.PushAsync(new HardDifficulty());
     }
 }

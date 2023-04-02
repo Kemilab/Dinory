@@ -11,13 +11,6 @@
                    VerticalOptions="Center"
                    Margin="50"/>
         <HorizontalStackLayout>
-            <Label x:Name="Music"
-                   Text="Music"
-                   FontSize="Subtitle"
-                   Margin="10"
-                   HorizontalOptions="Center"
-                   Margin="30"/>
-            <HorizontalStackLayout>
                 <Label x:Name="Music"
                         Text="Music"
                        FontSize="Subtitle"
@@ -31,5 +24,4 @@
                      Clicked="OnClickExit"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
-    </Frame>
 </toolkit:Popup>

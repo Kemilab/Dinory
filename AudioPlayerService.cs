@@ -13,7 +13,7 @@ namespace Dinory.Services
 
         private AudioPlayerService()
         {
-            LoadAudioFile();
+            _ = LoadAudioFile();
         }
 
         private async Task LoadAudioFile()

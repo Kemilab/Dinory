@@ -75,6 +75,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="HardDifficulty.xaml.cs">
+	    <DependentUpon>HardDifficulty.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="SettingsPage.xaml.cs">
 	    <DependentUpon>SettingsPage.xaml</DependentUpon>
 	  </Compile>
@@ -87,7 +90,7 @@
 	  <MauiXaml Update="EasyDifficulty.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="hard.xaml">
+	  <MauiXaml Update="HardDifficulty.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="NormalDifficulty.xaml">
